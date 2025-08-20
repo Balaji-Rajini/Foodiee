@@ -1,7 +1,7 @@
 
 function Description() {
     return (
-        <footer className="bg-black text-white p-12 w-full h-1/4 bottom-0 fixed" >
+        <footer className="bg-black text-white p-12 w-full h-1/4 " >
             <h1 className="">Foodiee....</h1>
             <div className=" grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="flex flex-col sapce-2">

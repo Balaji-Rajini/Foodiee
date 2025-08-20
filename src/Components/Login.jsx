@@ -18,7 +18,7 @@ function Login(props) {
                 console.log("Login Suceesfulll..")
                 setruser(true);
                 userfound = true;
-                navigate("/Landing", {state:{user:eusername}});
+                navigate("/", {state:{user:eusername}});
 
             }
         });
@@ -39,24 +39,24 @@ function Login(props) {
     return (
         <>
 
-            <div className="bg-black p-10">
-                <div className="bg-[#EFEFEF] p-10 border rounded-md">
+            <div className="bg-greeny p-10  text-greeny  ">
+                <div className="bg-green-100 p-10 border rounded-md">
                     <h1 className="text-3xl font-medium"> Hey Hello... Welcome</h1>
                     {ruser ?
-                        <p>I help You Manage Your Activitie Aftert You Login...</p> :
+                        <p className="text-dark">Login To Get Your Dish at Correct Time  ...</p> :
                         <p className="text-red-500">Please Sign up Before You Login...</p>}
                     <div className="flex flex-col gap-2 my-2">
 
                         <input type="text"
                             placeholder="UserName" onChange={(evt)=>seteusername(evt.target.value)}
-                            className="w-52 border-black border  bg-transparent rounded-md p-1" />
+                            className="w-52 border-black border  bg-green-200 rounded-md p-1" />
 
 
                         <input type="text"
                             placeholder="PassWord" onChange={(evt)=>setepassword(evt.target.value)}
-                            className="w-52 border-black  border rounded-md p-1 bg-transparent " />
+                            className="w-52 border-black  border bg-green-200 rounded-md p-1 bg-transparent " />
 
-                         <button className="bg-[#8272DA] w-24 p-1 rounded-md" onClick={checkuser} >Login</button>
+                         <button className="bg-green-400 text-dark w-24 p-1 rounded-md" onClick={checkuser} >Login</button>
                             
                         <p>Don't Have an account? <Link to={"/signup"} className="underline">Sign Up</Link></p>
                     </div>

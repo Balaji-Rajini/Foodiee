@@ -6,6 +6,7 @@ import Description from "./Components/Description"
 import Signup from "./Components/Signup";
 import Navbar from "./Components/Navbar";
 import Search from "./Components/Search"
+import Checkout from "./Components/Checkout";
 function Home() {
   return (
     <h1>Home</h1>
@@ -21,11 +22,13 @@ function App() {
   return (
     
     <BrowserRouter>
+
       <Routes>
         <Route path="/" element={<><Navbar /><Search /><Dishes/><Description /></>}></Route>
 
 
 
+        <Route path="/checkout" element={<Checkout/>} />
 
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/login" element={<div><Navbar/>

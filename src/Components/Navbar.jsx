@@ -9,7 +9,7 @@ function Navbar() {
                 <FaUtensils />          </div>
             <div className=" text-xl mt-2  flex gap-8 cursor-pointer">
 
-                    <p>Check-Out<FaShoppingCart /></p>
+                    <p><Link to={"/checkout"} >CheckOut</Link><FaShoppingCart /></p>
             
                 <p>  <Link to={"/login"} className="" >Login<FaUnlockAlt/></Link>
                 </p>

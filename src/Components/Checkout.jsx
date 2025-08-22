@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation ,Link} from "react-router-dom";
 
 export default function Checkout() {
   const location = useLocation();
@@ -13,8 +13,9 @@ export default function Checkout() {
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">Checkout</h1>
 
-        {cartItems.length === 0 ? (
-          <p className="text-gray-500">Your cart is empty.</p>
+        {cartItems.length === 0 ? (<>          <p className="text-gray-500">Your cart is empty.</p>
+<Link to={"/dishes"} className="bg-greeny text-white border rounded-lg  p-4 ml-60" >Grab Your Dishes Now..</Link></>
+
         ) : (
           <>
             <div className="space-y-4">
@@ -49,11 +50,19 @@ export default function Checkout() {
             >
               Place Order
             </button>
+            
           </>
+         
         )}
       </div>
-    </div>
-  );
+      
+    
+      
+
+</div>
+
+
+      );
 }
 
 

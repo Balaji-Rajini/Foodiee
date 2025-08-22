@@ -7,16 +7,7 @@ import Signup from "./Components/Signup";
 import Navbar from "./Components/Navbar";
 import Search from "./Components/Search"
 import Checkout from "./Components/Checkout";
-function Home() {
-  return (
-    <h1>Home</h1>
-  )
-}
-function About() {
-  return (
-    <h1>About</h1>
-  )
-}
+import Home from "./Components/Home";
 function App() {
 
   return (
@@ -24,7 +15,7 @@ function App() {
     <BrowserRouter>
 
       <Routes>
-        <Route path="/" element={<><Navbar /><Search /><Dishes/><Description /></>}></Route>
+        <Route path="/" element={<Home/>}></Route>
 
 
 
@@ -38,8 +29,6 @@ function App() {
         </div>} />
 
         <Route path="/dishes" element={<div><Navbar/><Search/><Dishes/><Description/></div>} />
-        <Route path="/about" element={<About />} />
-        <Route path="/home" element={<Home />} />
 
       </Routes></BrowserRouter>
   )

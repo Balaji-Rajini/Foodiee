@@ -6,25 +6,26 @@ function Login(props) {
     const [eusername, seteusername] = useState("")
     const [epassword, setepassword] = useState("")
     const [ruser, setruser] = useState(true)
-    const users = props.users
     const navigate = useNavigate()
 
+
+    
     function checkuser() {
 
         var userfound = false
 
         users.forEach(function (item) {
             if (item.username === eusername && item.password === epassword) {
-                console.log("Login Suceesfulll..")
+                alert("Login Suceesfulll..")
                 setruser(true);
                 userfound = true;
-                navigate("/", {state:{user:eusername}});
+                navigate("/signup", {state:{user:eusername}});
 
             }
         });
 
         if (userfound === false) {
-                            console.log("Login Failed..")
+                            alert("Login Failed..")
 
             setruser(false);
         }
@@ -56,10 +57,13 @@ function Login(props) {
                             placeholder="PassWord" onChange={(evt)=>setepassword(evt.target.value)}
                             className="w-52 border-black  border bg-green-200 rounded-md p-1 bg-transparent " />
 
-                         <button className="bg-green-400 text-dark w-24 p-1 rounded-md" onClick={checkuser} >Login</button>
+                         <button className="bg-green-400 text-dark w-24 p-1 rounded-md" onClick={checkuser} ><Link to={"/"} >Login</Link></button>
                             
+                            {
+                            (eusername.length <0)? alert("enter User name") :
                         <p>Don't Have an account? <Link to={"/signup"} className="underline">Sign Up</Link></p>
-                    </div>
+                    
+                                }    </div>
                 </div>
             </div></>
     )

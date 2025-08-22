@@ -36,7 +36,7 @@ function Dishes() {
   };
 
   return (
-    <div className="p-10">
+    <div className="p-10 ">
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
         {dishes.map((item, index) => {
           const isInCart = cart.some((c) => c.name === item.dishname);

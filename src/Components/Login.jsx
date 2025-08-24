@@ -50,12 +50,12 @@ function Login(props) {
 
                         <input type="text"
                             placeholder="UserName" onChange={(evt)=>seteusername(evt.target.value)}
-                            className="w-52 border-black border  bg-green-200 rounded-md p-1" />
+                            className="w-52 border-black border  bg-green-300 rounded-md p-1" />
 
 
                         <input type="text"
                             placeholder="PassWord" onChange={(evt)=>setepassword(evt.target.value)}
-                            className="w-52 border-black  border bg-green-200 rounded-md p-1 bg-transparent " />
+                            className="w-52 border-black  border bg-green-300 rounded-md p-1 bg-transparent " />
 
                          <button className="bg-green-400 text-dark w-24 p-1 rounded-md" onClick={checkuser} ><Link to={"/"} >Login</Link></button>
                             

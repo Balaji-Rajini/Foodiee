@@ -1,12 +1,28 @@
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { BsCart, BsCartFill } from "react-icons/bs";
+import Search from "./Search";
+
+
+
 
 function Dishes() {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
 
-  const dishes = [
+
+  const dishfromapi =()=>{
+    const [dishimg , setdishimg] =useState([]);
+   useEffect(()=>{
+    fetch("https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata")
+.then((res) =>res.json()).then((data)=>{
+  setdishimg(data)
+});
+   },[]);
+    
+  }
+
+const dishes = [
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2   ", dishname:"Biriyani", dishprice:230, dishrating:"good" },
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Egg-Rice", dishprice:180, dishrating:"good" },
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Chicken-Rice", dishprice:200, dishrating:"good" },
@@ -15,7 +31,17 @@ function Dishes() {
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Grill-Chicken", dishprice:320, dishrating:"good" },
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Chicken-Tikka", dishprice:120, dishrating:"good" },
     { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Panner-Roast", dishprice:120, dishrating:"good" }
+  , { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2   ", dishname:"Biriyani", dishprice:230, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Egg-Rice", dishprice:180, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Chicken-Rice", dishprice:200, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Fried-Chicken", dishprice:120, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Tandoori", dishprice:360, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Grill-Chicken", dishprice:320, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Chicken-Tikka", dishprice:120, dishrating:"good" },
+    { dishimage:"https://www.bing.com/th/id/OIP.2iWS4NJfB5y_mu30Nsq_bwHaHa?w=207&h=211&c=8&rs=1&qlt=90&r=0&o=6&cb=thwsc4&dpr=1.3&pid=3.1&rm=2  ", dishname:"Panner-Roast", dishprice:120, dishrating:"good" }
   ];
+console.log(dishes[0].dishname)
+
 
   const toggleCart = (dish) => {
     setCart((prev) => {
@@ -36,17 +62,17 @@ function Dishes() {
   };
 
   return (
-    <div className="p-10 ">
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6">
+    <div className="p-10 mt-24">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-6">
         {dishes.map((item, index) => {
           const isInCart = cart.some((c) => c.name === item.dishname);
           const CartIcon = isInCart ? BsCartFill : BsCart;
 
           return (
-            <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden w-64 hover:scale-105 transition">
+            <div key={index} id="dishlist" className="bg-white rounded-2xl shadow-lg overflow-hidden w-64 hover:scale-105 transition">
               <img src={item.dishimage} alt={item.dishname} className="w-full h-40 object-cover" />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-gray-800">{item.dishname}</h2>
+              <div className="p-4" >
+                <h2  className="text-lg font-semibold text-gray-800">{item.dishname}</h2>
                 <p className="text-gray-500 text-sm">₹{item.dishprice}</p>
                 <p className="text-green-600 font-medium">{item.dishrating}</p>
 
